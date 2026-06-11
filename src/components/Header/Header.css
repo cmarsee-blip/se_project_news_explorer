@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0 28px;
+}
+
+.header__signin-btn {
+  background-color: transparent;
+  border-radius: 100px;
+  border: 1px solid black;
+}
+
+.header__nav-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__nav-link {
+}
+
+.header__nav-link_home {
+  margin-right: 42px;
+}

@@ -1,0 +1,123 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.modal__close {
+  position: absolute;
+  top: -45px;
+  left: 470px;
+  background-color: transparent;
+}
+
+.modal__close-btn {
+  color: #fff;
+}
+
+.modal__content {
+  max-width: 496px;
+  width: 100%;
+  min-height: 436px;
+  background-color: #fff;
+  border-radius: 20px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 28px 28px 36px;
+}
+
+.modal__error {
+  display: block;
+  color: #ff4d4f; /* red-ish for errors */
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  min-height: 16px; /* reserve space to avoid layout shift */
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__input {
+  display: block;
+  border: none;
+  border-bottom: 1px solid #000; /* default bottom border moved from label to input */
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 6px; /* space between control and its error message */
+  background: transparent;
+  padding: 4px 0; /* give some vertical padding so border isn't too close to text */
+}
+.modal__input_invalid {
+  border-bottom: 1px solid #ff4d4f;
+}
+
+.modal__label {
+  margin-top: 24px;
+}
+.modal__label_email {
+  margin-top: 22px;
+  margin-bottom: 24px;
+  color: #2f71e5;
+}
+
+.modal__label_password {
+  color: #2f71e5;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__submit {
+  width: 358px;
+  height: 64px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e6e8eb;
+  border-radius: 100px;
+  border: none;
+  margin-top: 24px;
+  margin-left: 36px;
+}
+
+.modal__submit:hover {
+  background: #2f71e5;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modal__submit-next {
+  height: 36px;
+  width: 226px;
+  padding: 0 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-top: 24px;
+  margin-left: 102px;
+  color: #000;
+  opacity: 0.5;
+  font-weight: 700;
+}
+
+.modal__title {
+  top: 34px;
+  left: 36px;
+}
