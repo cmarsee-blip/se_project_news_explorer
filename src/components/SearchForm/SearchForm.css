@@ -1,0 +1,12 @@
+.searchForm {
+  align-items: center;
+  color: #fff;
+}
+
+.searchForm__title {
+  font-size: 60px;
+}
+
+.searchForm__description {
+  font-size: 18px;
+}

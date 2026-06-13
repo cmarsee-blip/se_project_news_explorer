@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "../Header/Header";
 import About from "../About/About";
+import SearchForm from "../SearchForm/SearchForm";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
@@ -91,6 +92,7 @@ function App() {
               }
             />
           </Routes>
+          <SearchForm></SearchForm>
           <About></About>
           <Footer>2026 Supersite, Powered by News API</Footer>
         </div>
