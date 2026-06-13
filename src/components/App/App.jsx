@@ -9,7 +9,7 @@ import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
-import { signIn, checkToken } from "../../utils/auth";
+import { signIn, signUp, checkToken } from "../../utils/auth";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
@@ -23,6 +23,10 @@ function App() {
 
   const handleLogInClick = () => {
     setActiveModal("signin-user");
+  };
+
+  const handleSignUpClick = () => {
+    setActiveModal("register-user");
   };
 
   const closeActiveModal = () => {
@@ -69,6 +73,18 @@ function App() {
     }
   };
 
+  const handleRegistration = async (userData) => {
+    try {
+      await signUp(userData);
+      await handleLogin({
+        email: userData.email,
+        password: userData.password,
+      });
+    } catch (error) {
+      console.error("Registration failed:", error);
+    }
+  };
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div
@@ -100,8 +116,14 @@ function App() {
           isOpen={activeModal === "signin-user"}
           onClose={closeActiveModal}
           onLoginUser={handleLogin}
+          handleSignUpClick={handleSignUpClick}
         ></LoginModal>
-        <RegisterModal></RegisterModal>
+        <RegisterModal
+          isOpen={activeModal === "register-user"}
+          onClose={closeActiveModal}
+          onRegisterUser={handleRegistration}
+          handleLogInClick={handleLogInClick}
+        ></RegisterModal>
       </div>
     </CurrentUserContext.Provider>
   );

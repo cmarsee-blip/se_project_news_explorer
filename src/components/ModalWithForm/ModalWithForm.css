@@ -75,6 +75,11 @@
   color: #2f71e5;
 }
 
+.modal__label_username {
+  color: #2f71e5;
+  margin-top: 31px;
+}
+
 .modal_opened {
   visibility: visible;
 }
