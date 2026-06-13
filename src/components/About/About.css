@@ -11,9 +11,7 @@
   object-fit: cover;
   border-radius: 50%;
   display: block;
-  margin-bottom: 16px;
-  top: 80px;
-  left: 84px;
+  margin: 80px 56px 80px 84px;
 }
 
 .about__text {
