@@ -2,18 +2,30 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 0 28px;
+  top: 30px;
+  width: 100%;
+  height: 80px;
+}
+
+.header__logo {
+  font-size: 20px;
+  margin-left: 84px;
+  color: #fff;
 }
 
 .header__signin-btn {
   background-color: transparent;
   border-radius: 100px;
-  border: 1px solid black;
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 .header__nav-links {
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  /* right: 84px; */
+  padding: 0 84px 0 0;
 }
 
 .header__nav-link {
@@ -21,4 +33,5 @@
 
 .header__nav-link_home {
   margin-right: 42px;
+  color: #fff;
 }

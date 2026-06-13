@@ -12,6 +12,7 @@ import { signIn, checkToken } from "../../utils/auth";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
+import bg from "../../assets/bg-image.svg";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -69,10 +70,16 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className="page">
+      <div
+        className="page"
+        style={{
+          backgroundImage: `url(${bg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="page__content">
           <Header handleLogInClick={handleLogInClick} />
-          <About />
           <Routes>
             <Route path="/" element={<Main />} />
             <Route
@@ -84,6 +91,7 @@ function App() {
               }
             />
           </Routes>
+          <About></About>
           <Footer>2026 Supersite, Powered by News API</Footer>
         </div>
         <LoginModal
