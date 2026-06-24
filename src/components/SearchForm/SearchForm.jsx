@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import "./SearchForm.css";
 
-function SearchForm({ onSearch = () => {} }) {
-  const [query, setQuery] = useState("");
+function SearchForm({ handleSearch }) {
+  const [searchInput, setSearchInput] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (query.trim() === "") return;
-    onSearch(query.trim());
+    handleSearch(searchInput);
   }
+
+  const handleInputChange = (evt) => {
+    setSearchInput(evt.target.value);
+  };
 
   return (
     <section className="searchForm">
@@ -23,11 +26,10 @@ function SearchForm({ onSearch = () => {} }) {
           <input
             id="search-input"
             name="search"
-            type="search"
+            type="text"
             className="searchForm__input"
             placeholder="Enter topic"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={handleInputChange}
             required
             aria-label="Search for news"
           />

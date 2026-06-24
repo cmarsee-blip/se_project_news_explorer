@@ -13,6 +13,11 @@
   color: #fff;
 }
 
+.header__logout-icon {
+  height: 24px;
+  width: 24px;
+}
+
 .header__signin-btn {
   background-color: transparent;
   border-radius: 100px;
@@ -21,17 +26,43 @@
 }
 
 .header__nav-links {
+  color: #fff;
   display: flex;
-  gap: 16px;
+  gap: 76px;
   align-items: center;
-  /* right: 84px; */
   padding: 0 84px 0 0;
 }
 
-.header__nav-link {
+.header__nav-link_home {
+  color: #fff;
 }
 
-.header__nav-link_home {
-  margin-right: 42px;
+.header__nav-link_saved {
   color: #fff;
+}
+
+/* container for saved link + username */
+.header__user-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* username styling placed to the right of the saved link */
+.header__username {
+  display: flex;
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  font-size: 18px;
+  padding: 12px 19px;
+  margin-left: 45px;
+}
+
+/* reduce risk of wrapping on small screens */
+@media (max-width: 480px) {
+  .header__username {
+    display: none; /* hide username on very small screens if needed */
+  }
 }

@@ -1,0 +1,113 @@
+@import url("../../index.css");
+
+.news-card {
+  width: 400px;
+  font-family: "Roboto-Regular", sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.news-card__body {
+  margin-left: 24px;
+}
+
+.news-card__btn_bookmark {
+  background: transparent url(../../assets/bookmark.svg);
+  width: 40px;
+  height: 100%;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.news-card__btn_bookmark:hover {
+  transition: all 0.25s ease-in-out;
+  background: transparent url(../../assets/bookmark-Hover.svg);
+}
+
+.news-card__btn_bookmark_clicked {
+  background: transparent url(../../assets/bookmark-Clicked.svg);
+}
+
+.news-card__date {
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 18px;
+  color: #b6bcbf;
+}
+
+.news-card__description {
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  margin: 0 0 18px 0;
+  color: black;
+  height: 6.9em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.news-card__image {
+  width: 400px;
+  height: 272px;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.news-card__image_placeholder {
+}
+
+.news-card__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-card__popup-text {
+  border-radius: 8px;
+  background-color: #fff;
+  height: 100%;
+  align-content: center;
+  padding: 0 20px;
+}
+
+.news-card__popup-text_hidden {
+  visibility: hidden;
+}
+
+.news-card__save {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 40px;
+}
+
+.news-card__source {
+  font-family: "Roboto-Slab-Regular", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 20px;
+  color: #b6bcbf;
+  margin: 0;
+}
+
+.news-card__title {
+  font-family: "Roboto-Slab-Regular", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 30px;
+  margin: 15px 0 16px 0;
+  color: black;
+  height: 60px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}

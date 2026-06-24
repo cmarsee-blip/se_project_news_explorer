@@ -1,7 +1,22 @@
 import "./Main.css";
+import SearchForm from "../SearchForm/SearchForm";
+import NewsCard from "../NewsCard/NewsCard";
+import About from "../About/About";
+import NewsCardList from "../NewCardList/NewsCardList";
 
-function Main({}) {
-  return <main></main>;
+function Main({ isLoggedIn, handleSearch, articles }) {
+  return (
+    <main>
+      <SearchForm handleSearch={handleSearch}></SearchForm>
+      {/* <h4>{searchResults[0]?.title}</h4> */}
+      <NewsCardList articles={articles}></NewsCardList>
+
+      {/* {articles.map((article) => (
+        <NewsCard article={article} key={article.title}></NewsCard>
+      ))} */}
+      <About></About>
+    </main>
+  );
 }
 
 export default Main;

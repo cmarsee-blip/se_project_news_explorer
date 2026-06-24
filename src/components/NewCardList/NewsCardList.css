@@ -1,0 +1,4 @@
+.news-card__list {
+  display: flex;
+  gap: 16px;
+}

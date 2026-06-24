@@ -5,10 +5,21 @@
   padding: 0 84px 0 84px;
 }
 
-.footer_links {
+.footer__link {
+}
+
+.footer__links {
   line-height: 20px;
   font-size: 16px;
   letter-spacing: 0%;
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  color: #1a1b22;
+}
+
+.footer__links_wrapper {
+  display: flex;
 }
 
 .footer__copyright {
@@ -16,4 +27,10 @@
   font-size: 16px;
   letter-spacing: 0%;
   color: #b6bcbf;
+}
+
+.footer__social_links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
 }

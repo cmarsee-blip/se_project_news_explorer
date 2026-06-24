@@ -11,6 +11,7 @@
   font-size: 60px;
   max-width: 608px;
   margin-bottom: 14px;
+  margin-top: 60px;
 }
 
 .searchForm__description {
@@ -48,7 +49,7 @@
 
 .searchForm__button {
   position: absolute;
-  right: 376px;
+  right: 284px;
   padding: 10px 16px;
   background: #347eff;
   color: #fff;
