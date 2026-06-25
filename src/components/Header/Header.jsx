@@ -4,7 +4,7 @@ import "./Header.css";
 import { NavLink } from "react-router-dom";
 import logoutIcon from "../../assets/logout.png";
 
-function Header({ isLoggedIn, handleLogInClick }) {
+function Header({ isLoggedIn, handleLogInClick, handleLogOutClick }) {
   const currentUser = useContext(CurrentUserContext);
 
   return (
@@ -27,7 +27,7 @@ function Header({ isLoggedIn, handleLogInClick }) {
               Saved articles
             </NavLink>
 
-            <span className="header__username">
+            <button onClick={handleLogOutClick} className="header__username">
               {currentUser?.name || "Cody"}
               <img
                 src={logoutIcon}
@@ -35,7 +35,7 @@ function Header({ isLoggedIn, handleLogInClick }) {
                 className="header__logout-icon"
                 aria-hidden="true"
               />
-            </span>
+            </button>
           </div>
         ) : (
           <div className="header__auth-container">

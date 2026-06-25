@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import "./App.css";
 import Header from "../Header/Header";
@@ -34,12 +34,18 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [searchResults, setSearchResults] = useState([]);
-  const [currentPage, setCurrentPage] = useState("");
+  const currentPage = useLocation().pathname;
   const [savedArticles, setSavedArticles] = useState([]);
   const [keyword, setKeyword] = useState("");
 
   const handleLogInClick = () => {
     setActiveModal("signin-user");
+  };
+
+  const handleLogOutClick = () => {
+    localStorage.removeItem("user");
+    setIsLoggedIn(false);
+    setCurrentUser(null);
   };
 
   const handleSignUpClick = () => {
@@ -80,12 +86,13 @@ function App() {
     );
 
     const updateSearchResult = (newArticle) => {
-      const updatedSearchResult = searchResult.map((article) =>
+      const updatedSearchResult = searchResults.map((article) =>
         article.url === newsData.url ? newArticle : article,
       );
-      setSearchResult(updatedSearchResult);
+      setSearchResults(updatedSearchResult);
     };
 
+    console.log(newsData);
     if (!isArticleSaved) {
       addSavedArticle(newsData, keyword)
         .then((res) => {
@@ -208,6 +215,7 @@ function App() {
                 <Header
                   handleLogInClick={handleLogInClick}
                   isLoggedIn={isLoggedIn}
+                  handleLogOutClick={handleLogOutClick}
                 />
                 <Routes>
                   <Route
@@ -224,7 +232,7 @@ function App() {
                   <Route
                     path="/saved-news"
                     element={
-                      <ProtectedRoute>
+                      <ProtectedRoute isLoggedIn={isLoggedIn}>
                         <Profile />
                       </ProtectedRoute>
                     }

@@ -2,3 +2,18 @@
   display: flex;
   gap: 16px;
 }
+
+.news-cards__btn {
+  border-radius: 80px;
+  background-color: #fff;
+  margin-bottom: 80px;
+  margin-top: 64px;
+  width: 288px;
+  height: 64px;
+  margin-left: 470px;
+  font-size: 18px;
+}
+
+.news-cards__btn:hover {
+  background-color: #e8e8e8;
+}

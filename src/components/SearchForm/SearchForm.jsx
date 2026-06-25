@@ -22,7 +22,7 @@ function SearchForm({ handleSearch }) {
       </p>
       <form className="searchForm__form" onSubmit={handleSubmit} noValidate>
         <label htmlFor="search-input" className="searchForm__label">
-          <span className="visually-hidden">Search</span>
+          {/* <span className="visually-hidden">Search</span> */}
           <input
             id="search-input"
             name="search"

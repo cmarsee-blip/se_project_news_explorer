@@ -16,21 +16,24 @@
   margin-left: 24px;
 }
 
-.news-card__btn_bookmark {
+.news-card__btn-bookmark {
   background: transparent url(../../assets/bookmark.svg);
   width: 40px;
-  height: 100%;
+  height: 40px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
-.news-card__btn_bookmark:hover {
+.news-card__btn-bookmark:hover {
   transition: all 0.25s ease-in-out;
   background: transparent url(../../assets/bookmark-Hover.svg);
 }
 
-.news-card__btn_bookmark_clicked {
+.news-card__btn-bookmark_clicked {
   background: transparent url(../../assets/bookmark-Clicked.svg);
 }
 
@@ -83,7 +86,7 @@
 .news-card__save {
   position: absolute;
   top: 24px;
-  right: 24px;
+  left: 24px;
   display: flex;
   align-items: center;
   gap: 5px;

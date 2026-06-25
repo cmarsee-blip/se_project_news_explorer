@@ -21,24 +21,26 @@
 
 .searchForm__form {
   display: flex;
-  /* gap: 8px; */
+  width: 100%;
+  max-width: 608px;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 80px;
-  /* max-width: 608px;
-  width: 100%; */
+  background-color: #fff;
+  border-radius: 100px;
+  overflow: hidden;
 }
 
 .searchForm__input {
   flex: 1;
   min-width: 220px;
   padding: 10px 12px;
-  border-radius: 100px;
-  border: 1px solid #ccc;
   font-size: 16px;
   background: #fff;
   box-sizing: border-box;
   max-width: 608px;
   width: 100%;
+  border: none;
 }
 
 .searchForm__input:focus {
@@ -48,16 +50,24 @@
 }
 
 .searchForm__button {
-  position: absolute;
-  right: 284px;
   padding: 10px 16px;
-  background: #347eff;
+  background: #2f71e5;
   color: #fff;
   border: none;
   border-radius: 100px;
   cursor: pointer;
   font-weight: 600;
   font-size: 18px;
+  width: 100%;
+  max-width: 168px;
+}
+
+.searchForm__button:hover {
+  background: #347eff;
+}
+
+.searchForm__button_clicked {
+  background: #2a65cc;
 }
 
 .searchForm__button:disabled {

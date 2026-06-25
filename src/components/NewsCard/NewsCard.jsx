@@ -7,6 +7,7 @@ import KeywordContext from "../../contexts/keyWordContext";
 import SavedArticlesContext from "../../contexts/SavedArticlesContext";
 
 function NewsCard({ article, handleSaveArticle, newsData }) {
+  console.log(newsData);
   const { source, title, publishedAt, description, urlToImage } = article || {};
 
   const formattedDate = publishedAt
@@ -14,7 +15,7 @@ function NewsCard({ article, handleSaveArticle, newsData }) {
     : "";
 
   const handleBookmarkClick = () => {
-    handleSaveArticle({ newsData, keyword });
+    handleSaveArticle({ newsData: article, keyword });
   };
 
   const handleRemoveClick = () => {
@@ -25,18 +26,20 @@ function NewsCard({ article, handleSaveArticle, newsData }) {
     return string ? string.charAt(0).toUpperCase() + string.slice(1) : "";
   };
 
-  const { currentPage, setCurrentPage } = useContext(CurrentPageContext);
+  const currentPage = useContext(CurrentPageContext);
   const [isHovered, setIsHovered] = useState(false);
   const { isLoggedIn } = useContext(CurrentUserContext);
   const { savedArticles } = useContext(SavedArticlesContext);
   const { keyword } = useContext(KeywordContext);
+
+  console.log(currentPage);
 
   return (
     <article className="news-card">
       {currentPage === "/saved-news" && (
         <>
           <h3 className="news-card__keyword">
-            {capitalizeFirstLetter(newsData.keyword)}
+            {capitalizeFirstLetter(article.keyword)}
           </h3>
           <p
             className={`news-card__popup-text ${
@@ -58,29 +61,36 @@ function NewsCard({ article, handleSaveArticle, newsData }) {
         <button
           className={`news-card__btn-bookmark ${
             savedArticles.some(
-              (savedArticles) => savedArticles.link === newsData.url,
+              (savedArticles) => savedArticles.link === article.url,
             )
               ? "news-card__btn-bookmark_clicked"
               : ""
           }`}
           // onClick={handleBookmarkClick}
-          onClick={newsData.isSaved ? handleRemoveClick : handleBookmarkClick}
+          onClick={
+            savedArticles.some(
+              (savedArticles) => savedArticles.link === article.url,
+            )
+              ? handleRemoveClick
+              : handleBookmarkClick
+          }
         />
       ) : (
         ""
       )}
       {!isLoggedIn && (
-        <div className="news-card__save">
-          <p
-            className={`news-card__popup-text ${
-              isHovered ? "" : "news-card__popup-text_hidden"
-            }`}
-          >
-            Sign in to save articles
-          </p>
-
+        <>
+          <div className="news-card__save">
+            <p
+              className={`news-card__popup-text ${
+                isHovered ? "" : "news-card__popup-text_hidden"
+              }`}
+            >
+              Sign in to save articles
+            </p>
+          </div>
           <button
-            className="news-card__btn_bookmark"
+            className="news-card__btn-bookmark"
             onClick={handleBookmarkClick}
             onMouseEnter={() => {
               setIsHovered(true);
@@ -89,7 +99,7 @@ function NewsCard({ article, handleSaveArticle, newsData }) {
               setIsHovered(false);
             }}
           />
-        </div>
+        </>
       )}
       <a>
         {" "}
