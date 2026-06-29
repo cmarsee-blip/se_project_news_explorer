@@ -1,8 +1,14 @@
 .footer {
+  background-color: #fff;
+  max-width: 1232px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer__content {
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
-  padding: 0 84px 0 84px;
+  padding: 0 20px;
 }
 
 .footer__link {

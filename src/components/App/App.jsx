@@ -15,7 +15,6 @@ import NewsCard from "../NewsCard/NewsCard";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-import bg from "../../assets/bg-image.svg";
 import RegistrationSuccessModal from "../RegistrationSuccessModal/RegistrationSuccessModal";
 import CurrentPageContext from "../../contexts/currentPageContext";
 import SavedArticlesContext from "../../contexts/SavedArticlesContext";
@@ -30,7 +29,7 @@ import { checkToken, authorize } from "../../utils/auth";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [searchResults, setSearchResults] = useState([]);
@@ -75,15 +74,21 @@ function App() {
 
   const handleSearch = (userInput) => {
     const searchNews = getNews(userInput);
+    setKeyword(userInput);
     searchNews.then((data) => {
       setSearchResults(data.articles);
     });
   };
 
+  console.log(savedArticles);
+
   const handleSaveArticle = ({ newsData, keyword }) => {
     const isArticleSaved = savedArticles.some(
       (article) => article.link === newsData.url,
     );
+    // if (!isArticleSaved) {
+    //   setSavedArticles((articles) => [...articles, { ...newsData, keyword }]);
+    // }
 
     const updateSearchResult = (newArticle) => {
       const updatedSearchResult = searchResults.map((article) =>
@@ -203,14 +208,7 @@ function App() {
           value={{ savedArticles, setSavedArticles }}
         >
           <KeywordContext.Provider value={{ keyword, setKeyword }}>
-            <div
-              className="page"
-              style={{
-                backgroundImage: `url(${bg})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
+            <div className="page">
               <div className="page__content">
                 <Header
                   handleLogInClick={handleLogInClick}
@@ -233,7 +231,10 @@ function App() {
                     path="/saved-news"
                     element={
                       <ProtectedRoute isLoggedIn={isLoggedIn}>
-                        <Profile />
+                        <Profile
+                          handleSaveArticle={handleSaveArticle}
+                          articles={savedArticles}
+                        />
                       </ProtectedRoute>
                     }
                   />

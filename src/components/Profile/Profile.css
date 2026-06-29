@@ -1,0 +1,23 @@
+.profile {
+  margin-left: 104px;
+}
+
+.profile__description {
+  color: #1a1b22;
+  font-size: 40px;
+  line-height: 46px;
+  max-width: 530px;
+  margin-bottom: 30px;
+}
+
+.profile__keywords {
+  font-size: 18px;
+  margin-bottom: 56px;
+}
+
+.profile__title {
+  color: #1a1b22;
+  opacity: 0.5;
+  font-size: 18px;
+  margin-bottom: 28px;
+}

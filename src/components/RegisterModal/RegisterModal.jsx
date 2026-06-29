@@ -27,7 +27,7 @@ const RegisterModal = ({
       onClose={onClose}
       onSubmit={handleSubmit}
       buttonText="Sign up"
-      altButtonText="or Sign in"
+      altButtonText="Sign in"
       altButtonHandler={handleLogInClick}
     >
       <label htmlFor="register-email" className="modal__label_email">

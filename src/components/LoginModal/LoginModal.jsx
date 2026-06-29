@@ -22,7 +22,7 @@ const LoginModal = ({ isOpen, onClose, onLoginUser, handleSignUpClick }) => {
       onClose={onClose}
       onSubmit={handleSubmit}
       buttonText="Sign in"
-      altButtonText="or Sign Up"
+      altButtonText="Sign Up"
       altButtonHandler={handleSignUpClick}
     >
       <label htmlFor="login-email" className="modal__label_email">

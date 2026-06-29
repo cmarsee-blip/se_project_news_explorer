@@ -19,7 +19,8 @@ function NewsCardList({ articles, handleSaveArticle }) {
   };
 
   return (
-    <>
+    <div className="news-card__list_content">
+      Search Results
       <div className="news-card__list">
         {articles.slice(0, cardsDisplayed).map((article) => (
           <NewsCard
@@ -39,7 +40,7 @@ function NewsCardList({ articles, handleSaveArticle }) {
           Show more
         </button>
       )}
-    </>
+    </div>
   );
 }
 

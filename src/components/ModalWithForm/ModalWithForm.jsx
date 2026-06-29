@@ -44,7 +44,7 @@ function ModalWithForm({
                 className="modal__submit-next"
                 onClick={altButtonHandler}
               >
-                {altButtonText}
+                or {altButtonText}
               </button>
             ) : null}
           </div>

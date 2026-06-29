@@ -39,7 +39,7 @@ function NewsCard({ article, handleSaveArticle, newsData }) {
       {currentPage === "/saved-news" && (
         <>
           <h3 className="news-card__keyword">
-            {capitalizeFirstLetter(article.keyword)}
+            {capitalizeFirstLetter(article?.keyword)}
           </h3>
           <p
             className={`news-card__popup-text ${
@@ -49,21 +49,20 @@ function NewsCard({ article, handleSaveArticle, newsData }) {
             Remove from saved
           </p>
           <button
-            className="news-card__btn-delete"
+            className="news-card__btn news-card__btn-delete"
             onClick={handleRemoveClick}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           />
         </>
       )}
-
       {isLoggedIn && currentPage === "/" ? (
         <button
-          className={`news-card__btn-bookmark ${
+          className={`news-card__btn news-card__btn-bookmark ${
             savedArticles.some(
               (savedArticles) => savedArticles.link === article.url,
             )
-              ? "news-card__btn-bookmark_clicked"
+              ? "news-card__btn news-card__btn-bookmark_clicked"
               : ""
           }`}
           // onClick={handleBookmarkClick}
@@ -90,7 +89,7 @@ function NewsCard({ article, handleSaveArticle, newsData }) {
             </p>
           </div>
           <button
-            className="news-card__btn-bookmark"
+            className="news-card__btn news-card__btn-bookmark"
             onClick={handleBookmarkClick}
             onMouseEnter={() => {
               setIsHovered(true);

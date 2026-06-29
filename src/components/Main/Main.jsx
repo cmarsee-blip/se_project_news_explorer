@@ -1,5 +1,6 @@
 import "./Main.css";
 import SearchForm from "../SearchForm/SearchForm";
+import bg from "../../assets/bg-image.svg";
 import NewsCard from "../NewsCard/NewsCard";
 import About from "../About/About";
 import NewsCardList from "../NewCardList/NewsCardList";
@@ -12,7 +13,7 @@ function Main({
   handleSaveArticle,
 }) {
   return (
-    <main>
+    <main className="main">
       <SearchForm handleSearch={handleSearch}></SearchForm>
       {/* <h4>{searchResults[0]?.title}</h4> */}
       <NewsCardList

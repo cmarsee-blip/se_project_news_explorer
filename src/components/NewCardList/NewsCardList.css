@@ -1,6 +1,14 @@
 .news-card__list {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
+  background-color: #fff;
+}
+
+.news-card__list_content {
+  background-color: #fff;
+  padding-top: 80px;
+  padding-left: 100px;
 }
 
 .news-cards__btn {

@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./Header.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import logoutIcon from "../../assets/logout.png";
 
 function Header({ isLoggedIn, handleLogInClick, handleLogOutClick }) {
   const currentUser = useContext(CurrentUserContext);
-
+  const location = useLocation().pathname;
   return (
-    <header className="header">
+    <header
+      className={`header ${location === "/saved-news" ? "header_type_saved" : ""}`}
+    >
       <NavLink className="header__logo" to="/">
         NewsExplorer
       </NavLink>
@@ -21,7 +23,7 @@ function Header({ isLoggedIn, handleLogInClick, handleLogOutClick }) {
         {isLoggedIn ? (
           <div className="header__user-container">
             <NavLink
-              className="header__nav-link header__nav-link_saved"
+              className={`header__nav-link header__nav-link_saved ${location === "/saved-news" ? "header__nav-link_active" : ""} `}
               to="/saved-news"
             >
               Saved articles
