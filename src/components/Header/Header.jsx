@@ -7,6 +7,7 @@ import logoutIcon from "../../assets/logout.png";
 function Header({ isLoggedIn, handleLogInClick, handleLogOutClick }) {
   const currentUser = useContext(CurrentUserContext);
   const location = useLocation().pathname;
+
   return (
     <header
       className={`header ${location === "/saved-news" ? "header_type_saved" : ""}`}

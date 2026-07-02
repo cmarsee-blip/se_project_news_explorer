@@ -36,6 +36,9 @@ function App() {
   const currentPage = useLocation().pathname;
   const [savedArticles, setSavedArticles] = useState([]);
   const [keyword, setKeyword] = useState("");
+  const [hasSearchResults, setHasSearchResults] = useState(true);
+  const [isSearchLoading, setIsSearchLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const handleLogInClick = () => {
     setActiveModal("signin-user");
@@ -55,8 +58,8 @@ function App() {
     setActiveModal("");
   };
 
-  const handleRemoveArticle = ({ newsData }) => {
-    removeSavedArticle(newsData)
+  const handleRemoveArticle = (newsData) => {
+    removeSavedArticle()
       .then(() => {
         const unsavedNewsArticles = savedArticles.filter(
           (article) => article._id !== newsData._id,
@@ -73,18 +76,31 @@ function App() {
   };
 
   const handleSearch = (userInput) => {
-    const searchNews = getNews(userInput);
+    setIsSearchLoading(true);
+    setHasSearched(true);
     setKeyword(userInput);
-    searchNews.then((data) => {
-      setSearchResults(data.articles);
-    });
+    getNews(userInput)
+      .then((data) => {
+        setSearchResults(data.articles);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setIsSearchLoading(false);
+      });
+    // const searchNews = getNews(userInput);
+    // searchNews.then((data) => {
+    //   setSearchResults(data.articles);
+    // setHasSearchResults(true) => {data.articles.length > 0}
+    // });
   };
 
   console.log(savedArticles);
 
-  const handleSaveArticle = ({ newsData, keyword }) => {
+  const handleSaveArticle = ({ article, keyword }) => {
     const isArticleSaved = savedArticles.some(
-      (article) => article.link === newsData.url,
+      (savedArticle) => savedArticle.link === article.url,
     );
     // if (!isArticleSaved) {
     //   setSavedArticles((articles) => [...articles, { ...newsData, keyword }]);
@@ -92,16 +108,15 @@ function App() {
 
     const updateSearchResult = (newArticle) => {
       const updatedSearchResult = searchResults.map((article) =>
-        article.url === newsData.url ? newArticle : article,
+        article.url === newArticle.url ? newArticle : article,
       );
       setSearchResults(updatedSearchResult);
     };
 
-    console.log(newsData);
     if (!isArticleSaved) {
-      addSavedArticle(newsData, keyword)
+      addSavedArticle(article, keyword)
         .then((res) => {
-          const newArticle = { ...newsData, _id: res._id };
+          const newArticle = { ...article, _id: res._id };
           const updatedSavedArticles = [res, ...savedArticles];
           setSavedArticles(updatedSavedArticles);
           localStorage.setItem(
@@ -200,7 +215,7 @@ function App() {
       console.error("Registration failed:", error);
     }
   };
-  console.log(searchResults[0]);
+
   return (
     <CurrentPageContext.Provider value={currentPage}>
       <CurrentUserContext.Provider value={{ isLoggedIn, currentUser }}>
@@ -224,6 +239,8 @@ function App() {
                         handleSearch={handleSearch}
                         handleSaveArticle={handleSaveArticle}
                         handleRemoveArticle={handleRemoveArticle}
+                        isSearchLoading={isSearchLoading}
+                        hasSearched={hasSearched}
                       />
                     }
                   />
@@ -234,6 +251,7 @@ function App() {
                         <Profile
                           handleSaveArticle={handleSaveArticle}
                           articles={savedArticles}
+                          handleRemoveArticle={handleRemoveArticle}
                         />
                       </ProtectedRoute>
                     }

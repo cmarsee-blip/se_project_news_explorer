@@ -11,6 +11,8 @@ function Main({
   articles,
   handleRemoveArticle,
   handleSaveArticle,
+  isSearchLoading,
+  hasSearched,
 }) {
   return (
     <main className="main">
@@ -20,12 +22,14 @@ function Main({
         articles={articles}
         handleSaveArticle={handleSaveArticle}
         handleRemoveArticle={handleRemoveArticle}
+        isSearchLoading={isSearchLoading}
+        hasSearched={hasSearched}
       ></NewsCardList>
 
       {/* {articles.map((article) => (
         <NewsCard article={article} key={article.title}></NewsCard>
       ))} */}
-      <About></About>
+      <About />
     </main>
   );
 }

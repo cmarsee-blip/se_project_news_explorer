@@ -6,8 +6,7 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import KeywordContext from "../../contexts/keyWordContext";
 import SavedArticlesContext from "../../contexts/SavedArticlesContext";
 
-function NewsCard({ article, handleSaveArticle, newsData }) {
-  console.log(newsData);
+function NewsCard({ article, handleSaveArticle, handleRemoveArticle }) {
   const { source, title, publishedAt, description, urlToImage } = article || {};
 
   const formattedDate = publishedAt
@@ -15,11 +14,11 @@ function NewsCard({ article, handleSaveArticle, newsData }) {
     : "";
 
   const handleBookmarkClick = () => {
-    handleSaveArticle({ newsData: article, keyword });
+    handleSaveArticle({ article, keyword });
   };
 
   const handleRemoveClick = () => {
-    handleRemoveArticle(newsData);
+    handleRemoveArticle(article);
   };
 
   const capitalizeFirstLetter = (string) => {
@@ -41,13 +40,15 @@ function NewsCard({ article, handleSaveArticle, newsData }) {
           <h3 className="news-card__keyword">
             {capitalizeFirstLetter(article?.keyword)}
           </h3>
-          <p
-            className={`news-card__popup-text ${
-              isHovered ? "" : "news-card__popup-text_hidden"
-            }`}
-          >
-            Remove from saved
-          </p>
+          <div className="news-card__save">
+            <p
+              className={`news-card__popup-text ${
+                isHovered ? "" : "news-card__popup-text_hidden"
+              }`}
+            >
+              Remove from saved
+            </p>
+          </div>
           <button
             className="news-card__btn news-card__btn-delete"
             onClick={handleRemoveClick}

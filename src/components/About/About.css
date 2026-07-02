@@ -12,6 +12,7 @@
   border-radius: 50%;
   display: block;
   margin: 80px 56px 80px 84px;
+  aspect-ratio: 1;
 }
 
 .about__text {
