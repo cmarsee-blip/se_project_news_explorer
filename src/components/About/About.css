@@ -29,3 +29,52 @@
 .about__description {
   color: black;
 }
+
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+  .about {
+    padding: 0 40px;
+  }
+
+  .about__author-image {
+    max-width: 232px;
+    max-height: 232px;
+    margin: 61px 32px 61px 0;
+  }
+
+  .about__title {
+    font-size: 28px;
+    margin-top: 40px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    text-align: center;
+  }
+
+  .about__author-image {
+    max-width: 272px;
+    max-height: 272px;
+    margin: 32px auto 16px;
+  }
+
+  .about__text {
+    width: 288px;
+    max-width: 288px;
+    margin: 0 auto;
+  }
+
+  .about__title {
+    font-size: 22px;
+    margin-top: 8px;
+  }
+
+  .about__description {
+    font-size: 14px;
+  }
+}

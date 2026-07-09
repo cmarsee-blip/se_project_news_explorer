@@ -1,5 +1,5 @@
 .profile {
-  margin-left: 104px;
+  margin-bottom: 62px;
 }
 
 .profile__description {
@@ -8,16 +8,65 @@
   line-height: 46px;
   max-width: 530px;
   margin-bottom: 30px;
+  margin-left: 104px;
 }
 
 .profile__keywords {
   font-size: 18px;
   margin-bottom: 56px;
+  margin-left: 104px;
+}
+
+.profile__keywords_bold {
+  font-weight: 700;
 }
 
 .profile__title {
   color: #1a1b22;
   opacity: 0.5;
   font-size: 18px;
+  margin-top: 40px;
   margin-bottom: 28px;
+  margin-left: 104px;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+  .profile__description,
+  .profile__keywords,
+  .profile__title {
+    margin-left: 40px;
+  }
+
+  .profile__keywords {
+    margin-bottom: 32px;
+  }
+
+  .profile__title {
+    margin-top: 24px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .profile__description,
+  .profile__keywords,
+  .profile__title {
+    margin-left: 16px;
+  }
+
+  .profile__description {
+    font-size: 30px;
+    margin-right: 16px;
+    margin-bottom: 50px;
+  }
+
+  .profile__keywords {
+    margin-bottom: 32px;
+  }
+
+  .profile__title {
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
 }

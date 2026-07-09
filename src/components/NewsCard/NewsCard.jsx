@@ -9,8 +9,13 @@ import SavedArticlesContext from "../../contexts/SavedArticlesContext";
 function NewsCard({ article, handleSaveArticle, handleRemoveArticle }) {
   const { source, title, publishedAt, description, urlToImage } = article || {};
 
-  const formattedDate = publishedAt
-    ? new Date(publishedAt).toLocaleDateString()
+  const displayDescription = description || article?.text;
+  const displayDate = publishedAt || article?.date;
+  const displayImage = urlToImage || article?.image;
+  const displaySource = source?.name || article?.source;
+
+  const formattedDate = displayDate
+    ? new Date(displayDate).toLocaleDateString()
     : "";
 
   const handleBookmarkClick = () => {
@@ -103,10 +108,10 @@ function NewsCard({ article, handleSaveArticle, handleRemoveArticle }) {
       )}
       <a>
         {" "}
-        {urlToImage ? (
+        {displayImage ? (
           <img
             className="news-card__image"
-            src={urlToImage}
+            src={displayImage}
             alt={title || "Article image"}
           />
         ) : (
@@ -118,9 +123,9 @@ function NewsCard({ article, handleSaveArticle, handleRemoveArticle }) {
         <div className="news-card__body">
           <p className="news-card__date">{formattedDate}</p>
           <h3 className="news-card__title">{title}</h3>
-          <p className="news-card__description">{description}</p>
+          <p className="news-card__description">{displayDescription}</p>
           <div className="news-card__meta">
-            <span className="news-card__source">{source?.name}</span>
+            <span className="news-card__source">{displaySource}</span>
           </div>
         </div>
       </a>

@@ -11,6 +11,7 @@ function NewsCardList({
   handleRemoveArticle,
   isSearchLoading,
   hasSearched,
+  searchError,
 }) {
   //   const mockArticle = {
   //     source: { name: "source" },
@@ -33,25 +34,40 @@ function NewsCardList({
     <div className="news-card__list_content">
       {isSearchLoading && <Preloader />}
 
-      {!isSearchLoading && articles.length > 0 && !isSavedNewsPage && (
-        <h2 className="news-card__header">Search results</h2>
-      )}
-
-      {!isSearchLoading && hasSearched && articles.length <= 0 && (
-        <div className="news-card__nothing-found_container">
-          <img
-            src={NothingFound}
-            alt="Nothing found"
-            className="news-card__nothing-found_image"
-          />
-          <h2 className="news-card__nothing-found">Nothing found</h2>
-          <h3 className="news-card__nothing-found_subtitle">
-            Sorry, but nothing matched your search terms
-          </h3>
+      {!isSearchLoading && searchError && (
+        <div className="news-card__error-container">
+          <h2 className="news-card__error">
+            Sorry, something went wrong during the request. Please try again
+            later.
+          </h2>
         </div>
       )}
 
-      {!isSearchLoading && (
+      {!isSearchLoading &&
+        !searchError &&
+        articles.length > 0 &&
+        !isSavedNewsPage && (
+          <h2 className="news-card__header">Search results</h2>
+        )}
+
+      {!isSearchLoading &&
+        !searchError &&
+        hasSearched &&
+        articles.length <= 0 && (
+          <div className="news-card__nothing-found_container">
+            <img
+              src={NothingFound}
+              alt="Nothing found"
+              className="news-card__nothing-found_image"
+            />
+            <h2 className="news-card__nothing-found">Nothing found</h2>
+            <h3 className="news-card__nothing-found_subtitle">
+              Sorry, but nothing matched your search terms
+            </h3>
+          </div>
+        )}
+
+      {!isSearchLoading && !searchError && (
         <div className="news-card__list">
           {(isSavedNewsPage ? articles : articles.slice(0, cardsDisplayed)).map(
             (article) => (
@@ -66,16 +82,19 @@ function NewsCardList({
         </div>
       )}
 
-      {!isSearchLoading && articles.length > 0 && !isSavedNewsPage && (
-        <button
-          className={`news-cards__btn ${
-            cardsDisplayed >= articles.length ? "hidden" : ""
-          }`}
-          onClick={increaseVisibleCards}
-        >
-          Show more
-        </button>
-      )}
+      {!isSearchLoading &&
+        !searchError &&
+        articles.length > 0 &&
+        !isSavedNewsPage && (
+          <button
+            className={`news-cards__btn ${
+              cardsDisplayed >= articles.length ? "hidden" : ""
+            }`}
+            onClick={increaseVisibleCards}
+          >
+            Show more
+          </button>
+        )}
     </div>
   );
 }

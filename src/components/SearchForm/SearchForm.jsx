@@ -3,9 +3,18 @@ import "./SearchForm.css";
 
 function SearchForm({ handleSearch }) {
   const [searchInput, setSearchInput] = useState("");
+  const [error, setError] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
+    handleSearch(searchInput);
+
+    if (!searchInput.trim()) {
+      setError("Please enter a keyword");
+      return;
+    }
+
+    setError("");
     handleSearch(searchInput);
   }
 
@@ -33,6 +42,7 @@ function SearchForm({ handleSearch }) {
             required
             aria-label="Search for news"
           />
+          {error && <p className="searchForm__error">{error}</p>}
         </label>
         <button type="submit" className="searchForm__button">
           Search

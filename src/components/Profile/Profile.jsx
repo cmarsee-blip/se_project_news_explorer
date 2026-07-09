@@ -27,9 +27,12 @@ export default function Profile({
         {currentUser?.name || "Cody"}, you have {articlesCount} saved articles
       </div>
       <div className="profile__keywords">
-        By keywords: {formatted.splice(0, 3).join(", ")}
-        {uniqueSavedKeywords.length > 3 &&
-          ` and ${uniqueSavedKeywords.length - 3} other(s)`}
+        By keywords:{" "}
+        <span className="profile__keywords_bold">
+          {formatted.splice(0, 3).join(", ")}
+          {uniqueSavedKeywords.length > 3 &&
+            ` and ${uniqueSavedKeywords.length - 3} other`}
+        </span>
       </div>
       <NewsCardList
         articles={articles}

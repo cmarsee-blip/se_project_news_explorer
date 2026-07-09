@@ -29,7 +29,7 @@ import { checkToken, authorize } from "../../utils/auth";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [searchResults, setSearchResults] = useState([]);
@@ -39,6 +39,7 @@ function App() {
   const [hasSearchResults, setHasSearchResults] = useState(true);
   const [isSearchLoading, setIsSearchLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  const [searchError, setSearchError] = useState(false);
 
   const handleLogInClick = () => {
     setActiveModal("signin-user");
@@ -78,6 +79,7 @@ function App() {
   const handleSearch = (userInput) => {
     setIsSearchLoading(true);
     setHasSearched(true);
+    setSearchError(false);
     setKeyword(userInput);
     getNews(userInput)
       .then((data) => {
@@ -85,6 +87,8 @@ function App() {
       })
       .catch((err) => {
         console.error(err);
+        setSearchError(true);
+        setSearchResults([]);
       })
       .finally(() => {
         setIsSearchLoading(false);
@@ -216,6 +220,8 @@ function App() {
     }
   };
 
+  console.log(savedArticles[0]);
+
   return (
     <CurrentPageContext.Provider value={currentPage}>
       <CurrentUserContext.Provider value={{ isLoggedIn, currentUser }}>
@@ -241,6 +247,7 @@ function App() {
                         handleRemoveArticle={handleRemoveArticle}
                         isSearchLoading={isSearchLoading}
                         hasSearched={hasSearched}
+                        searchError={searchError}
                       />
                     }
                   />

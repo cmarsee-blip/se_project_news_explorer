@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./RegisterModal.css";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
@@ -12,6 +13,10 @@ const RegisterModal = ({
 
   const { values, handleChange, resetForm } =
     useFormWithValidation(defaultValues);
+
+  const [emailTakenError, setEmailTakenError] = useState(
+    "This email is not available",
+  );
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -66,6 +71,11 @@ const RegisterModal = ({
           className={"modal__input"}
         />
       </label>
+      {values.email.trim() !== "" && emailTakenError && (
+        <span className="modal__error modal__error_center">
+          {emailTakenError}
+        </span>
+      )}
     </ModalWithForm>
   );
 };

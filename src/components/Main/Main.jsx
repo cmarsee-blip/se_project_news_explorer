@@ -13,6 +13,7 @@ function Main({
   handleSaveArticle,
   isSearchLoading,
   hasSearched,
+  searchError,
 }) {
   return (
     <main className="main">
@@ -24,6 +25,7 @@ function Main({
         handleRemoveArticle={handleRemoveArticle}
         isSearchLoading={isSearchLoading}
         hasSearched={hasSearched}
+        searchError={searchError}
       ></NewsCardList>
 
       {/* {articles.map((article) => (
