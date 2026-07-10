@@ -89,6 +89,32 @@
   visibility: visible;
 }
 
+.modal_type_register-success .modal__content {
+  max-width: 430px;
+  min-height: auto;
+  padding: 24px 24px 32px 36px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.modal_type_register-success .modal__link {
+  background: none;
+  border: none;
+  color: #2f71e5;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 14px;
+  margin-bottom: 24px;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.modal_type_register-success .modal__link:hover {
+  text-decoration: underline;
+}
+
 .modal__submit {
   width: 358px;
   max-width: 100%;
@@ -136,6 +162,17 @@
 .modal__title {
   top: 34px;
   left: 36px;
+}
+
+.modal_type_register-success .modal__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #000;
+  max-width: 315px;
+  margin: 43px 79px 0 0;
 }
 
 /* ===== Tablet ===== */

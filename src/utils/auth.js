@@ -22,6 +22,18 @@ const headers = {
 //   }).then(handleServerResponse);
 // };
 
+export const signUp = ({ email, username, password }) => {
+  return new Promise((resolve, reject) => {
+    if (email === "taken@example.com") {
+      reject(new Error("This email is not available"));
+      return;
+    }
+    resolve({
+      data: { name: username, email, _id: "fake-signup-id" },
+    });
+  });
+};
+
 export const authorize = (email, password) => {
   // Pretend we did a fetch request that gave us back a token
   return new Promise((resolve, reject) => {

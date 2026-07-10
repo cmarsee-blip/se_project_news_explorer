@@ -14,14 +14,17 @@ const RegisterModal = ({
   const { values, handleChange, resetForm } =
     useFormWithValidation(defaultValues);
 
-  const [emailTakenError, setEmailTakenError] = useState(
-    "This email is not available",
-  );
+  const [emailTakenError, setEmailTakenError] = useState("");
 
-  function handleSubmit(evt) {
+  async function handleSubmit(evt) {
     evt.preventDefault();
-    onRegisterUser(values);
-    resetForm(defaultValues, {}, false);
+    try {
+      await onRegisterUser(values);
+      setEmailTakenError("");
+      resetForm(defaultValues, {}, false);
+    } catch (error) {
+      setEmailTakenError(error.message || "This email is not available");
+    }
   }
 
   return (
@@ -71,7 +74,7 @@ const RegisterModal = ({
           className={"modal__input"}
         />
       </label>
-      {values.email.trim() !== "" && emailTakenError && (
+      {emailTakenError && (
         <span className="modal__error modal__error_center">
           {emailTakenError}
         </span>

@@ -1,10 +1,8 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const RegistrationSuccessModal = ({ isOpen, onClose, onSignInClick }) => {
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSignInClick() {
     if (onSignInClick) onSignInClick();
-    if (onClose) onClose();
   }
 
   return (
@@ -13,10 +11,11 @@ const RegistrationSuccessModal = ({ isOpen, onClose, onSignInClick }) => {
       name="register-success"
       isOpen={isOpen}
       onClose={onClose}
-      onSubmit={handleSubmit}
-      buttonText="Sign in"
+      onSubmit={(e) => e.preventDefault()}
     >
-      <p className="modal__info">Registration successfully completed!</p>
+      <button type="button" className="modal__link" onClick={handleSignInClick}>
+        Sign in
+      </button>
     </ModalWithForm>
   );
 };

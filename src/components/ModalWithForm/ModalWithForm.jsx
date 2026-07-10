@@ -3,7 +3,7 @@ import close from "../../assets/close.svg";
 
 function ModalWithForm({
   children,
-  buttonText = "Add Garment",
+  buttonText,
   title,
   name,
   isOpen,
@@ -31,13 +31,15 @@ function ModalWithForm({
         <form onSubmit={onSubmit} className="modal__form" name={name}>
           {children}
           <div className="modal__submit_row">
-            <button
-              type="submit"
-              className="modal__submit"
-              disabled={isSubmitDisabled}
-            >
-              {buttonText}
-            </button>
+            {buttonText && (
+              <button
+                type="submit"
+                className="modal__submit"
+                disabled={isSubmitDisabled}
+              >
+                {buttonText}
+              </button>
+            )}
             {altButtonText ? (
               <button
                 type="button"

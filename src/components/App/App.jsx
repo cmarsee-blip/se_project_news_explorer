@@ -24,7 +24,7 @@ import {
   removeSavedArticle,
   addSavedArticle,
 } from "../../utils/api";
-import { checkToken, authorize } from "../../utils/auth";
+import { checkToken, authorize, signUp } from "../../utils/auth";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -213,10 +213,10 @@ function App() {
   const handleRegistration = async (userData) => {
     try {
       await signUp(userData);
-      // show the success modal and let the user navigate to Sign in
       setActiveModal("register-success");
     } catch (error) {
       console.error("Registration failed:", error);
+      throw error; // let RegisterModal handle showing this to the user
     }
   };
 
