@@ -2,7 +2,7 @@
 
 NewsExplorer is a responsive news search application that lets users find articles on any topic, save the ones they care about to a personal account, and revisit them later — organized automatically by the keywords they searched for.
 
-This repository contains the **frontend** of the project. The backend (authentication, saved-article storage) lives in a separate repository.
+This repository contains the **frontend** of the project. The backend is being simutlated for the purpose of the project.
 
 ## Screenshots
 
@@ -31,7 +31,7 @@ This repository contains the **frontend** of the project. The backend (authentic
 - **Keyword search** — pulls live articles from [NewsAPI](https://newsapi.org/) based on any topic entered by the user, with client-side validation (an empty search shows an inline "Please enter a keyword" error rather than firing a request).
 - **Authentication** — sign up and sign in via modal forms, with real-time field validation and error messaging.
 - **Save & remove articles** — logged-in users can bookmark any search result; saved articles can be removed either from the homepage or from the dedicated Saved Articles page.
-- **Saved Articles page** — displays a personalized count of saved articles and automatically summarizes them by keyword (e.g. *"By keywords: Nature, Yellowstone, and 2 other"*).
+- **Saved Articles page** — displays a personalized count of saved articles and automatically summarizes them by keyword (e.g. _"By keywords: Nature, Yellowstone, and 2 other"_).
 - **Fully responsive layout** — custom breakpoints for desktop, tablet, and mobile, including a collapsible dropdown navigation menu on small screens.
 - **Graceful empty/error states** — distinct UI for "no search performed yet," "search returned nothing," and "the request failed," so the results section always gives clear feedback.
 

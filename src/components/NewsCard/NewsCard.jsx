@@ -71,7 +71,6 @@ function NewsCard({ article, handleSaveArticle, handleRemoveArticle }) {
               ? "news-card__btn news-card__btn-bookmark_clicked"
               : ""
           }`}
-          // onClick={handleBookmarkClick}
           onClick={
             savedArticles.some(
               (savedArticles) => savedArticles.link === article.url,
@@ -142,7 +141,6 @@ NewsCard.propTypes = {
     urlToImage: PropTypes.string,
     url: PropTypes.string,
   }),
-  //   .isRequired,
 };
 
 export default NewsCard;

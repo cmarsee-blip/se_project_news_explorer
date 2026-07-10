@@ -6,22 +6,6 @@ const headers = {
   Accept: "application/json",
 };
 
-// export const signIn = async ({ email, password }) => {
-//   return fetch(`${newsApiBaseUrl}/signin`, {
-//     method: "POST",
-//     headers,
-//     body: JSON.stringify({ email, password }),
-//   }).then(handleServerResponse);
-// };
-
-// export const signUp = async ({ email, username, password }) => {
-//   return fetch(`${newsApiBaseUrl}/signup`, {
-//     method: "POST",
-//     headers,
-//     body: JSON.stringify({ username, email, password }),
-//   }).then(handleServerResponse);
-// };
-
 export const signUp = ({ email, username, password }) => {
   return new Promise((resolve, reject) => {
     if (email === "taken@example.com") {
@@ -49,13 +33,3 @@ export const checkToken = (token) => {
     });
   });
 };
-
-// export const checkToken = (token) => {
-//   return fetch(`${newsApiBaseUrl}/users/me`, {
-//     method: "GET",
-//     headers: {
-//       "Content-type": "application/json",
-//       authorization: `Bearer ${token}`,
-//     },
-//   }).then(handleServerResponse);
-// };

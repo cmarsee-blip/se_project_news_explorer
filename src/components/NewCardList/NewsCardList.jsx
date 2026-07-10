@@ -13,15 +13,6 @@ function NewsCardList({
   hasSearched,
   searchError,
 }) {
-  //   const mockArticle = {
-  //     source: { name: "source" },
-  //     title: "title",
-  //     publishedAt: "date",
-  //     description: "description",
-  //     urlToImage:
-  //       "https://upload.wikimedia.org/wikipedia/commons/7/77/Avatar_cat.png",
-  //   };
-
   const currentPage = useContext(CurrentPageContext);
   const isSavedNewsPage = currentPage === "/saved-news";
   const [cardsDisplayed, setCardsDisplayed] = useState(3);

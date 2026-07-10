@@ -11,7 +11,6 @@ import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import { getNews } from "../../utils/NewsApi";
 import NewsCard from "../NewsCard/NewsCard";
-// import { signIn, signUp, checkToken } from "../../utils/auth";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
@@ -199,9 +198,6 @@ function App() {
 
   const handleLogin = async (userData) => {
     try {
-      // const response = await signIn(userData);
-      // localStorage.setItem("jwt", response.token);
-      // const user = await checkToken(response.token);
       setCurrentUser(userData);
       setIsLoggedIn(true);
       closeActiveModal();
@@ -264,9 +260,6 @@ function App() {
                     }
                   />
                 </Routes>
-                {/* <SearchForm handleSearch={handleSearch}></SearchForm>
-          <NewsCard>Just some random text</NewsCard>
-          <About></About> */}
 
                 <Footer>2026 Supersite, Powered by News API</Footer>
               </div>

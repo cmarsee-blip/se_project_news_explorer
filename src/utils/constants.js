@@ -12,10 +12,4 @@ const checkResponse = (res) => {
   return Promise.reject(`Error: ${res.error}`);
 };
 
-// backend API base (change to your backend URL / production hostname)
-// const apiBaseUrl =
-//   process.env.NODE_ENV === "production"
-//     ? "https://your-production-backend.example.com" // replace with real prod backend
-//     : "http://localhost:3001";
-
 export { newsApiBaseUrl, apiKey, checkResponse };

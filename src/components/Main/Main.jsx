@@ -18,7 +18,6 @@ function Main({
   return (
     <main className="main">
       <SearchForm handleSearch={handleSearch}></SearchForm>
-      {/* <h4>{searchResults[0]?.title}</h4> */}
       <NewsCardList
         articles={articles}
         handleSaveArticle={handleSaveArticle}
@@ -27,10 +26,6 @@ function Main({
         hasSearched={hasSearched}
         searchError={searchError}
       ></NewsCardList>
-
-      {/* {articles.map((article) => (
-        <NewsCard article={article} key={article.title}></NewsCard>
-      ))} */}
       <About />
     </main>
   );
