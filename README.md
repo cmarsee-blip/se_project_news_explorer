@@ -89,7 +89,7 @@ src/
 ## Live Demo
 
 - [Deployed] (https://cmarsee-blip.github.io/se_project_news_explorer/)
-- [ProjectPitch] ()
+- [ProjectPitch] (https://www.loom.com/share/abbe6af0a1754567bd3c79cacfca1533)
 
 ## Author
 
