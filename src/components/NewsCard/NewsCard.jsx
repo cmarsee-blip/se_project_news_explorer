@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import "./NewsCard.css";
 import CurrentPageContext from "../../contexts/currentPageContext";

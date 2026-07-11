@@ -88,7 +88,8 @@ src/
 
 ## Live Demo
 
-_Add your deployed link here once the project is live._
+- [Deployed] (https://cmarsee-blip.github.io/se_project_news_explorer/)
+- [ProjectPitch] ()
 
 ## Author
 

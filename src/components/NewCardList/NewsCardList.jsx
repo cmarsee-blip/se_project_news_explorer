@@ -21,6 +21,12 @@ function NewsCardList({
     setCardsDisplayed(cardsDisplayed + 3);
   };
 
+  const shouldRender = isSavedNewsPage || isSearchLoading || hasSearched;
+
+  if (!shouldRender) {
+    return null;
+  }
+
   return (
     <div className="news-card__list_content">
       {isSearchLoading && <Preloader />}

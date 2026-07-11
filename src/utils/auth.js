@@ -1,6 +1,3 @@
-import { handleServerResponse } from "./api";
-import { newsApiBaseUrl } from "./constants";
-
 const headers = {
   "Content-Type": "application/json",
   Accept: "application/json",

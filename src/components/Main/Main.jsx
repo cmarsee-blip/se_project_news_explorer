@@ -1,13 +1,8 @@
 import "./Main.css";
-import SearchForm from "../SearchForm/SearchForm";
-import bg from "../../assets/bg-image.svg";
-import NewsCard from "../NewsCard/NewsCard";
 import About from "../About/About";
 import NewsCardList from "../NewCardList/NewsCardList";
 
 function Main({
-  isLoggedIn,
-  handleSearch,
   articles,
   handleRemoveArticle,
   handleSaveArticle,
@@ -17,7 +12,6 @@ function Main({
 }) {
   return (
     <main className="main">
-      <SearchForm handleSearch={handleSearch}></SearchForm>
       <NewsCardList
         articles={articles}
         handleSaveArticle={handleSaveArticle}

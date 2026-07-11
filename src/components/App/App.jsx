@@ -3,14 +3,11 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import "./App.css";
 import Header from "../Header/Header";
-import About from "../About/About";
-import SearchForm from "../SearchForm/SearchForm";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import { getNews } from "../../utils/NewsApi";
-import NewsCard from "../NewsCard/NewsCard";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
@@ -23,7 +20,7 @@ import {
   removeSavedArticle,
   addSavedArticle,
 } from "../../utils/api";
-import { checkToken, authorize, signUp } from "../../utils/auth";
+import { checkToken, signUp } from "../../utils/auth";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -92,11 +89,6 @@ function App() {
       .finally(() => {
         setIsSearchLoading(false);
       });
-    // const searchNews = getNews(userInput);
-    // searchNews.then((data) => {
-    //   setSearchResults(data.articles);
-    // setHasSearchResults(true) => {data.articles.length > 0}
-    // });
   };
 
   console.log(savedArticles);
@@ -105,9 +97,6 @@ function App() {
     const isArticleSaved = savedArticles.some(
       (savedArticle) => savedArticle.link === article.url,
     );
-    // if (!isArticleSaved) {
-    //   setSavedArticles((articles) => [...articles, { ...newsData, keyword }]);
-    // }
 
     const updateSearchResult = (newArticle) => {
       const updatedSearchResult = searchResults.map((article) =>
@@ -231,6 +220,7 @@ function App() {
                   handleLogInClick={handleLogInClick}
                   isLoggedIn={isLoggedIn}
                   handleLogOutClick={handleLogOutClick}
+                  handleSearch={handleSearch}
                 />
                 <Routes>
                   <Route
@@ -238,7 +228,6 @@ function App() {
                     element={
                       <Main
                         articles={searchResults}
-                        handleSearch={handleSearch}
                         handleSaveArticle={handleSaveArticle}
                         handleRemoveArticle={handleRemoveArticle}
                         isSearchLoading={isSearchLoading}
