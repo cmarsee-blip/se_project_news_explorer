@@ -8,6 +8,7 @@ function Header({
   handleLogInClick,
   handleLogOutClick,
   handleSearch,
+  isModalOpen,
 }) {
   const location = useLocation().pathname;
 
@@ -19,6 +20,7 @@ function Header({
         isLoggedIn={isLoggedIn}
         handleLogInClick={handleLogInClick}
         handleLogOutClick={handleLogOutClick}
+        isModalOpen={isModalOpen}
       />
       {location === "/" && <SearchForm handleSearch={handleSearch} />}
     </header>

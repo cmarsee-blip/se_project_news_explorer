@@ -196,8 +196,6 @@
 @media (max-width: 480px) {
   .news-card {
     width: 288px;
-    margin-right: 16px;
-    margin-left: 16px;
     margin-bottom: 10px;
   }
 

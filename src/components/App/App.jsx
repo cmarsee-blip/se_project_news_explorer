@@ -26,13 +26,11 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [searchResults, setSearchResults] = useState([]);
   const currentPage = useLocation().pathname;
   const [savedArticles, setSavedArticles] = useState([]);
   const [keyword, setKeyword] = useState("");
-  const [hasSearchResults, setHasSearchResults] = useState(true);
   const [isSearchLoading, setIsSearchLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [searchError, setSearchError] = useState(false);
@@ -119,8 +117,8 @@ function App() {
         })
         .catch((err) => console.error(err));
     } else {
-      removeSavedArticle(newsData)
-        .then(() => {
+      removeSavedArticle()
+        .then((newsData) => {
           const unsavedArticles = savedArticles.filter(
             (article) => article._id !== newsData._id,
           );
@@ -143,7 +141,6 @@ function App() {
     const token = localStorage.getItem("jwt");
 
     if (!token) {
-      setIsLoading(false);
       return;
     }
 
@@ -157,8 +154,6 @@ function App() {
     } catch (error) {
       localStorage.removeItem("jwt");
       console.error("Token validation failed:", error);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -221,6 +216,7 @@ function App() {
                   isLoggedIn={isLoggedIn}
                   handleLogOutClick={handleLogOutClick}
                   handleSearch={handleSearch}
+                  isModalOpen={activeModal !== ""}
                 />
                 <Routes>
                   <Route

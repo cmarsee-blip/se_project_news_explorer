@@ -35,7 +35,7 @@ function Footer() {
               >
                 <img
                   src={githubLogo}
-                  alt="GitHub Logo"
+                  alt="GitHub"
                   className="footer__link-icon"
                 />
               </a>
@@ -48,7 +48,7 @@ function Footer() {
               >
                 <img
                   src={LinkedIn}
-                  alt="LinkedIn Logo"
+                  alt="LinkedIn"
                   className="footer__link-icon"
                 />
               </a>

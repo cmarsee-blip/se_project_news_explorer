@@ -28,12 +28,12 @@ function NewsCardList({
   }
 
   return (
-    <div className="news-card__list_content">
+    <div className="news-cards-list">
       {isSearchLoading && <Preloader />}
 
       {!isSearchLoading && searchError && (
-        <div className="news-card__error-container">
-          <h2 className="news-card__error">
+        <div className="news-cards-list__error-container">
+          <h2 className="news-cards-list__error">
             Sorry, something went wrong during the request. Please try again
             later.
           </h2>
@@ -44,28 +44,28 @@ function NewsCardList({
         !searchError &&
         articles.length > 0 &&
         !isSavedNewsPage && (
-          <h2 className="news-card__header">Search results</h2>
+          <h2 className="news-cards-list__header">Search results</h2>
         )}
 
       {!isSearchLoading &&
         !searchError &&
         hasSearched &&
         articles.length <= 0 && (
-          <div className="news-card__nothing-found_container">
+          <div className="news-cards-list__nothing-found-container">
             <img
               src={NothingFound}
-              alt="Nothing found"
-              className="news-card__nothing-found_image"
+              alt="No search results found"
+              className="news-cards-list__nothing-found-image"
             />
-            <h2 className="news-card__nothing-found">Nothing found</h2>
-            <h3 className="news-card__nothing-found_subtitle">
+            <h2 className="news-cards-list__nothing-found">Nothing found</h2>
+            <h3 className="news-cards-list__nothing-found-subtitle">
               Sorry, but nothing matched your search terms
             </h3>
           </div>
         )}
 
       {!isSearchLoading && !searchError && (
-        <div className="news-card__list">
+        <div className="news-cards-list__items">
           {(isSavedNewsPage ? articles : articles.slice(0, cardsDisplayed)).map(
             (article) => (
               <NewsCard
@@ -84,7 +84,7 @@ function NewsCardList({
         articles.length > 0 &&
         !isSavedNewsPage && (
           <button
-            className={`news-cards__btn ${
+            className={`news-cards-list__btn ${
               cardsDisplayed >= articles.length ? "hidden" : ""
             }`}
             onClick={increaseVisibleCards}

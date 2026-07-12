@@ -4,11 +4,16 @@ import authorImg from "../../assets/family.jpeg";
 function About() {
   return (
     <section className="about">
-      <img className="about__author-image" src={authorImg} alt="Author" />
+      <img
+        className="about__author-image"
+        src={authorImg}
+        alt="Image of Author"
+      />
       <div className="about__text">
         <div className="about__title">About the Author</div>
         <p className="about__description">
-          Hello! My name is Cody Marsee and I'm a prospective Software Engineer.
+          Hello! My name is Cody Marsee and I&apos;m a prospective Software
+          Engineer.
           <br />
           <br />
           My time at TripleTen has been very beneficial! I have learned about

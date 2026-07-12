@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./ModalWithForm.css";
 import close from "../../assets/close.svg";
 
@@ -13,6 +14,22 @@ function ModalWithForm({
   altButtonText,
   altButtonHandler,
 }) {
+  useEffect(() => {
+    if (!isOpen) return;
+
+    function handleEscape(evt) {
+      if (evt.key === "Escape") {
+        onClose();
+      }
+    }
+
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen, onClose]);
+
   return (
     <div
       className={`modal modal_type_${name} ${isOpen ? "modal_opened" : ""}`}
@@ -26,7 +43,7 @@ function ModalWithForm({
           className="modal__close"
           aria-label="close icon"
         >
-          <img className="modal__close-btn" src={close} alt="" />
+          <img className="modal__close-btn" src={close} alt="Close" />
         </button>
         <form onSubmit={onSubmit} className="modal__form" name={name}>
           {children}
