@@ -1,0 +1,220 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.modal__close {
+  position: absolute;
+  top: -50px;
+  right: -55px;
+  background-color: transparent;
+}
+
+.modal__close-btn {
+  color: #fff;
+}
+
+.modal__content {
+  max-width: 496px;
+  width: 100%;
+  min-height: 436px;
+  background-color: #fff;
+  border-radius: 20px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 28px 28px 36px;
+}
+
+.modal__error {
+  display: block;
+  color: #ff0000; /* red-ish for errors */
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  min-height: 16px; /* reserve space to avoid layout shift */
+}
+
+.modal__error_center {
+  text-align: center;
+  margin-bottom: -15px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__input {
+  display: block;
+  border: none;
+  border-bottom: 1px solid #000; /* default bottom border moved from label to input */
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 6px; /* space between control and its error message */
+  background: transparent;
+  padding: 4px 0; /* give some vertical padding so border isn't too close to text */
+}
+.modal__input_invalid {
+  border-bottom: 1px solid #ff0000;
+}
+
+.modal__label {
+  margin-top: 24px;
+}
+.modal__label_email {
+  margin-top: 22px;
+  margin-bottom: 24px;
+  color: #2f71e5;
+}
+
+.modal__label_password {
+  color: #2f71e5;
+}
+
+.modal__label_username {
+  color: #2f71e5;
+  margin-top: 31px;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal_type_register-success .modal__content {
+  max-width: 430px;
+  min-height: auto;
+  padding: 24px 24px 32px 36px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.modal_type_register-success .modal__link {
+  background: none;
+  border: none;
+  color: #2f71e5;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 14px;
+  margin-bottom: 24px;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.modal_type_register-success .modal__link:hover {
+  text-decoration: underline;
+}
+
+.modal__submit {
+  width: 358px;
+  max-width: 100%;
+  height: 64px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e6e8eb;
+  border-radius: 100px;
+  border: none;
+  margin-top: 24px;
+}
+
+.modal__submit:hover {
+  background: #2f71e5;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modal__submit-next {
+  height: 36px;
+  width: 226px;
+  max-width: 100%;
+  padding: 0 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-top: 24px;
+  color: #000;
+  opacity: 0.5;
+  font-weight: 700;
+}
+
+.modal__submit_row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal__title {
+  top: 34px;
+  left: 36px;
+}
+
+.modal_type_register-success .modal__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #000;
+  max-width: 315px;
+  margin: 43px 79px 0 0;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+  .modal__content {
+    max-width: 430px;
+    min-height: 380px;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    padding: 24px 24px 32px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .modal {
+    align-items: flex-start;
+  }
+
+  .modal__content {
+    width: 100%;
+    max-width: 100%;
+    min-height: calc(100vh - 56px);
+    margin-top: 56px;
+    border-radius: 16px;
+    border: 1px solid #000;
+    padding: 24px 16px 32px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .modal__close {
+    top: -56px;
+    right: -10px;
+  }
+
+  .modal__close-btn {
+    height: 24px;
+    width: 24px;
+  }
+
+  .modal__submit {
+    width: 288px;
+    margin-left: 0;
+  }
+}
