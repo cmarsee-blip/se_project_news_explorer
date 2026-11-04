@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+  color: #fff;
+}
+
+.header_type_home {
+  background-image: url(../../assets/bg-image.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.header_type_saved {
+  color: black;
+}
