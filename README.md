@@ -51,7 +51,6 @@ This repository contains the **frontend** of the project. The backend is being s
 
 - Node.js (v18 or later recommended)
 - npm
-- A running instance of the [backend API](#) (update this link once the backend repo is public/deployed)
 
 ### Installation
 
@@ -67,7 +66,7 @@ npm install
 npm run dev
 ```
 
-By default this runs on `http://localhost:3000`. Make sure the backend is running and reachable at the URL this project expects (check the API utility files for the base URL configuration).
+By default this runs at the address Vite prints in the terminal.
 
 ### Building for production
 
