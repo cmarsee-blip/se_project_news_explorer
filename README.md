@@ -2,7 +2,7 @@
 
 NewsExplorer is a responsive news search application that lets users find articles on any topic, save the ones they care about to a personal account, and revisit them later — organized automatically by the keywords they searched for.
 
-This repository contains the **frontend** of the project. The backend is being simutlated for the purpose of the project.
+This repository contains the **frontend** of the project. The backend is being simulated for the purpose of the project.
 
 ## Screenshots
 
